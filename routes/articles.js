@@ -18,9 +18,9 @@ router.post('/articles', celebrate({
   }),
 }), createArticle);
 
-router.delete('/articles/:id', celebrate({
+router.delete('/articles/:articleId', celebrate({
   params: Joi.object().keys({
-    id: Joi.string().required().pattern(/^[a-f\d]{24}$/i),
+    articleId: Joi.string().required().pattern(/^[a-f\d]{24}$/i),
   }),
 }), delArticleById);
 
