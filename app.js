@@ -15,11 +15,11 @@ const { PORT, DATABASE_URL, mongooseConfig } = require('./config');
 const app = express();
 
 const corsOptions = {
-  origin:[
+  origin: [
+    'https://ospas312.github.io',
     'http://localhost:8080',
     'https://ospas312.github.io/practicum_diplom_front-end/',
     'ospas312.github.io',
-    'https://ospas312.github.io',
   ],
   credentials: true,
 };
