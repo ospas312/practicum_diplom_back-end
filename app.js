@@ -18,6 +18,8 @@ const corsOptions = {
   origin:[
     'http://localhost:8080',
     'https://ospas312.github.io/practicum_diplom_front-end/',
+    'ospas312.github.io',
+    'https://ospas312.github.io',
   ],
   credentials: true,
 };
