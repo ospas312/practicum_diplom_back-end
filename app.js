@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -10,7 +11,16 @@ const { celebrateError } = require('./middlewares/celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT, DATABASE_URL, mongooseConfig } = require('./config');
 
+
 const app = express();
+
+const corsOptions = {
+  origin:[
+    'http://localhost:8080',
+    'https://ospas312.github.io/practicum_diplom_front-end/',
+  ],
+  credentials: true,
+};
 
 mongoose
   .connect(DATABASE_URL, mongooseConfig)
@@ -18,6 +28,7 @@ mongoose
     throw new Error(err);
   });
 
+app.use(cors(corsOptions));
 app.use(limiter);
 app.use(helmet());
 app.use(bodyParser.json());

@@ -40,6 +40,9 @@ module.exports.login = (req, res, next) => {
     .catch(next);
 };
 
+module.exports.cookieDelete = (req, res, next) => {
+  res.clearCookie('jwt').send({ message: 'Logout success' });
+};
 
 module.exports.getUserById = (req, res, next) => {
   User.findById(req.user._id)
